@@ -1,0 +1,20 @@
+service: dummy-api
+
+provider:
+  name: aws
+  region: ap-south-1
+  runtime: nodejs20.x
+
+functions:
+  dummyApiHelloFn:
+    handler: hello.handler
+    events:
+      - httpApi:
+          path: /hello
+          method: GET
+  dummyApiByeFn:
+    handler: bye.handler
+    events:
+      - httpApi:
+          path: /bye
+          method: GET
